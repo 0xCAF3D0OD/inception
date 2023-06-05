@@ -1,0 +1,8 @@
+#!/bin/bash
+
+CONTAINERS=$(docker ps -a | awk '1==1 {print $1}' | grep -v "CONTAINER" | tr "\n" " ")
+docker rm -f $CONTAINERS
+docker ps -a
+
+#docker rm -f $(docker ps -a)
+#docker image rm -f $(docker image ls -a)

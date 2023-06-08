@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo "rename is called: version: $1"
 # Input string
 input_string="mariadbv0.9"
 

@@ -72,18 +72,23 @@ while getopts ':cslr' OPTION; do
 		s)
 			echo "Option s used"
 
-#			REP=$(docker image ls -a | grep $3 | awk '1==1 {print $1}' | tr "\n" " ")
+			REP=$(docker image ls -a | grep $3 | awk '1==1 {print $1}' | tr "\n" " ")
 #			TAG=$(docker image ls -a | grep $3 | awk '1==1 {print $2}' | tr "\n" " ")
 			ID=$(docker image ls -a | grep $3 | awk '1==1 {print $3}' | tr "\n" " ")
 
-#			echo $REP
+			echo $REP
 #			echo $TAG
 			echo $ID
-			if [ -n $id ]; then
-				docker image rm -f $ID
-				docker build -t $2 .
-				docker run $2
-			fi
+
+
+
+			NV=$(~/scripts/rename.sh $REP)
+			echo $NV
+#			if [ -n $id ]; then
+#				docker image rm -f $ID
+#				docker build -t N_V .
+#				docker run N_V
+#			fi
 			if [ $? -eq 0 ]; then
 				echo -e "\n${GREEN}it's a success${RESET}"
 				exit 0;

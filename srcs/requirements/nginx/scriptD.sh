@@ -59,8 +59,15 @@ if [ $# -eq 0 ]; then
 		exit 1;
 fi
 
-while getopts ':cslr' OPTION; do
+while getopts ':cslra' OPTION; do
 		case "$OPTION" in
+		a)
+			echo -e "${YELLOW}docker images${RESET}"
+			docker images
+			echo -e "${YELLOW}docker containers${RESET}"
+			docker ps -a
+			exit 0
+			;;
 		c)
 			echo "Option c used"
 			image=$(docker ps -ql)
@@ -72,23 +79,26 @@ while getopts ':cslr' OPTION; do
 		s)
 			echo "Option s used"
 
-			REP=$(docker image ls -a | grep $3 | awk '1==1 {print $1}' | tr "\n" " ")
-#			TAG=$(docker image ls -a | grep $3 | awk '1==1 {print $2}' | tr "\n" " ")
-			ID=$(docker image ls -a | grep $3 | awk '1==1 {print $3}' | tr "\n" " ")
+			REP=$(docker image ls -a | grep $2 | awk '1==1 {print $1}' | tr "\n" " ")
+#			TAG=$(docker image ls -a | grep $2 | awk '1==1 {print $2}' | tr "\n" " ")
+			ID=$(docker image ls -a | grep $2 | awk '1==1 {print $3}' | tr "\n" " ")
+			CONT=$(docker ps -a | grep $2 | awk '1==1 {print $1}' | tr "\n" " ")
 
-			echo $REP
+#			echo $REP
 #			echo $TAG
-			echo $ID
+#			echo $ID
+#			echo $CONT
 
 
-
-			NV=$(~/scripts/rename.sh $REP)
-			echo $NV
-#			if [ -n $id ]; then
-#				docker image rm -f $ID
-#				docker build -t N_V .
-#				docker run N_V
-#			fi
+			N_V=$(~/scripts/rename.sh $REP)
+			echo "nv = $N_V"
+			echo "cont = $CONT"
+			if [ -n $id ]; then
+				docker image rm -f $ID
+				docker rm -f $CONT
+				docker build -t $N_V .
+				docker run $N_V
+			fi
 			if [ $? -eq 0 ]; then
 				echo -e "\n${GREEN}it's a success${RESET}"
 				exit 0;
@@ -106,7 +116,7 @@ while getopts ':cslr' OPTION; do
 			exit 0
 			;;
 		?)
-			echo "Usage: $(basename $0) [-c] [-s] [-l] [-r]"
+			echo "Usage: $(basename $0) [-a] [-c] [-s] [-l] [-r]"
 			exit 1
 			;;
 		esac

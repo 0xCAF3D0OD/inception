@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo "program called: verion: "
 echo $1
 # Input string
 input_string=$1

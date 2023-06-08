@@ -97,6 +97,10 @@ while getopts ':cslra' OPTION; do
 				docker image rm -f $ID
 				docker rm -f $CONT
 				docker build -t $N_V .
+				if [[ "$3" == "-it" ]]; then
+					docker run -it $2
+					exit 0
+				fi
 				docker run $N_V
 			fi
 			if [ $? -eq 0 ]; then
@@ -131,6 +135,10 @@ if docker images "$1" | grep -q -F -- "$1"; then
 else
 		echo -e "\n${RED}it's doesn't exist${RESET}"
 		docker build -t "$1" -f Dockerfile .
+		if [[ "$2" == "-it" ]]; then
+			docker run -it $1
+			exit 0
+		fi
 		docker run "$1"
 		echo -e "\n${GREEN}it's a success${RESET}"
 fi

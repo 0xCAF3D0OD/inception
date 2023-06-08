@@ -1,10 +1,3 @@
-FROM alpine
+FROM debian:10
 
-RUN apk update && apk add gcc && apk add musl-dev
-
-COPY . /app/
-WORKDIR /app
-
-RUN gcc -o test test.c
-
-CMD ["./test"]
+RUN apt update && apt install -y gcc vim curl mariadb-server-10.3

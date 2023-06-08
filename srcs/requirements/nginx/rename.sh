@@ -1,8 +1,15 @@
 #!/bin/bash
 
+<<<<<<< HEAD
 echo "rename is called: version: $1"
 # Input string
 input_string="mariadbv0.9"
+=======
+echo "program called: verion: "
+echo $1
+# Input string
+input_string=$1
+>>>>>>> origin/test1
 
 # Extract version number
 version_number=$(echo "$input_string" | grep -o -E '[0-9]+\.[0-9]+')
@@ -25,3 +32,7 @@ incremented_version="${major_version}.${minor_version}"
 output_string=$(echo "$input_string" | sed "s/${version_number}/${incremented_version}/")
 
 echo "$output_string"
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/test1

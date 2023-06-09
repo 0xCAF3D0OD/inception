@@ -92,7 +92,7 @@ while getopts ':cslra' OPTION; do
 				docker rm -f $CONT
 				docker build -t $N_V .
 				if [[ "$3" == "-it" ]]; then
-					docker run -it $N_V
+					docker run -it $N_V bash
 					exit 0
 				fi
 				docker run $N_V

@@ -9,3 +9,6 @@ RUN apt-get install -y wget php7.3\
 RUN wget https://fr.wordpress.org/wordpress-6.0-fr_FR.tar.gz -P /var/www
 RUN cd /var/www && tar -xzf wordpress-6.0-fr_FR.tar.gz && rm wordpress-6.0-fr_FR.tar.gz
 RUN chown -R root:root /var/www/wordpress
+RUN apt install php
+
+COPY conf/www.conf /etc/php7/php-fpm.d/www.conf

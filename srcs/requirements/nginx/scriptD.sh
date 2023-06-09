@@ -84,12 +84,6 @@ while getopts ':cslra' OPTION; do
 			ID=$(docker image ls -a | grep $2 | awk '1==1 {print $3}' | tr "\n" " ")
 			CONT=$(docker ps -a | grep $2 | awk '1==1 {print $1}' | tr "\n" " ")
 
-#			echo $REP
-#			echo $TAG
-#			echo $ID
-#			echo $CONT
-
-
 			N_V=$(~/scripts/rename.sh $REP)
 			echo "nv = $N_V"
 			echo "cont = $CONT"
@@ -98,7 +92,7 @@ while getopts ':cslra' OPTION; do
 				docker rm -f $CONT
 				docker build -t $N_V .
 				if [[ "$3" == "-it" ]]; then
-					docker run -it $2
+					docker run -it $N_V
 					exit 0
 				fi
 				docker run $N_V

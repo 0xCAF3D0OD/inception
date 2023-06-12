@@ -24,3 +24,4 @@ COPY conf/auto_config.sh /tmp/auto_config.sh
 ENTRYPOINT ["bash","/tmp/auto_config.sh"]
 
 EXPOSE 9000
+

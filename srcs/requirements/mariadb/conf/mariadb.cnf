@@ -10,10 +10,15 @@ port = 3306
 user = mysql
 =======
 [mysqld]
-
-user = mysql
 datadir = /var/lib/mysql
+<<<<<<< HEAD
 socket = /run/mysqld/mysqld.sock
 bind_address = *
 port = 3306
 >>>>>>> 39d0613 (resolve conflict main)
+=======
+socket  = /run/mysqld/mysqld.sock
+bind_address=*
+port = 3306
+user = mysql
+>>>>>>> 04c7ece (begin wordpress)

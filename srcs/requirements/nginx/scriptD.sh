@@ -78,7 +78,6 @@ while getopts ':cslra' OPTION; do
 			;;
 		s)
 			echo "Option s used"
-
 			REP=$(docker image ls -a | grep $2 | awk '1==1 {print $1}' | tr "\n" " ")
 #			TAG=$(docker image ls -a | grep $2 | awk '1==1 {print $2}' | tr "\n" " ")
 			ID=$(docker image ls -a | grep $2 | awk '1==1 {print $3}' | tr "\n" " ")
@@ -118,7 +117,6 @@ while getopts ':cslra' OPTION; do
 			exit 1
 			;;
 		esac
-
 done
 
 if docker images "$1" | grep -q -F -- "$1"; then

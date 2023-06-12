@@ -7,6 +7,7 @@ if [$1 == *.*]
 
 input_string=$1
 
+#
 # Extract version number
 version_number=$(echo "$input_string" | grep -o -E '[0-9]+\.[0-9]+')
 

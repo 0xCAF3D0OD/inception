@@ -81,12 +81,11 @@ while getopts ':csl' OPTION; do
 		docker save -o "$commit_file" $IMAGE
 		if [ $? -eq 0 ]; then
 			echo -e "\n${GREEN}it's a success${RESET}"
+			gzip "$commit_file"
 			exit 0;
 		else
 			exit 1;
 		fi
-#		gzip "$commit_file"
-#		exit 0
 		;;
    	 l)
 		echo "Option l used"

@@ -117,6 +117,7 @@ while getopts ':cslra' OPTION; do
 			exit 1
 			;;
 		esac
+
 done
 
 if docker images "$1" | grep -q -F -- "$1"; then

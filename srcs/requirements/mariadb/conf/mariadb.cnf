@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [mysql]
 default-character-set=utf8
 
@@ -7,3 +8,12 @@ socket  = /run/mysqld/mysqld.sock
 bind_address=*
 port = 3306
 user = mysql
+=======
+[mysqld]
+
+user = mysql
+datadir = /var/lib/mysql
+socket = /run/mysqld/mysqld.sock
+bind_address = *
+port = 3306
+>>>>>>> 39d0613 (resolve conflict main)

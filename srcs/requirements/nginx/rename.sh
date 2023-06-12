@@ -4,7 +4,6 @@ echo "rename is called: version: $1"
 # Input string
 if [$1 == *.*]
 	echo "ok"
-
 input_string=$1
 
 # Extract version number

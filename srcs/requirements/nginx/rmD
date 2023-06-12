@@ -52,5 +52,4 @@ while getopts ':ica' OPTION; do
 		esac
 done
 
-#docker rm -f $(docker ps -a)
-#docker image rm -f $(docker image ls -a)
+docker image rm -f $(docker image ls -a)

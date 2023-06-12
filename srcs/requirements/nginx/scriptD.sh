@@ -59,6 +59,7 @@ if [ $# -eq 0 ]; then
 		exit 1;
 fi
 
+<<<<<<< HEAD
 while getopts ':cslr' OPTION; do
 		case "$OPTION" in
 		c)

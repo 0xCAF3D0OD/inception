@@ -25,14 +25,13 @@ services:
       context: requirements/mariadb
       dockerfile: Dockerfile
     env_file: .env
-    volumes:
-      - mariadb:/var/lib/mysql
-    restart: on-failure
+    restart: on-failure # "on-failure", container will be restarted
     expose:
       - "3306"
 
-  nginx:
-    container_name: nginx
+  nginx:           # with TLSv.1.2
+    image: nginx
+    container_name: nginx # name of the container
     volumes:
       - wordpress:/var/www/wordpress
     networks:
@@ -46,47 +45,3 @@ services:
     ports:
       - "443:443"
     restart: on-failure
-
-volumes:
-  
-#version: '3.1'
-#
-#services:
-#  wordpress:
-#    image: wordpress
-#    restart: unless-stopped
-#    environment:
-#      WORDPRESS_DB_HOST: db
-#      WORDPRESS_DB_USER: kevin
-#      WORDPRESS_DB_PASSWORD: 12345
-#      WORDPRESS_DB_NAME: mdb
-#    volumes:
-#      - wordpress:/var/www/wordpress
-#    depends_on:
-#      - mariadb
-#    expose:
-#      - "9000"
-#
-#  db:
-#    image: mariadb
-#    networks:
-#      - inception
-#    build:
-#      context: requirements/mariadb
-#      dockerfile: Dockerfile
-#    environment:
-#      MARIADB_ROOT_PASSWORD: root
-#      MARIADB_USER: kevin
-#      MARIADB_DATABASE: mdb
-#      MARIADB_PASSWORD: 12345
-#    restart: on-failure
-#
-#  web:
-#    image: nginx
-#    volumes:
-#      - ./templates:/etc/nginx/templates
-#    ports:
-#      - "8080:80"
-#    environment:
-#      - NGINX_HOST=kevin.com
-#      - NGINX_PORT=80

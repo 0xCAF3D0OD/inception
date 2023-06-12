@@ -87,7 +87,7 @@ while getopts ':cslra' OPTION; do
 			N_V=$(~/scripts/rename.sh $REP)
 			echo "nv = $N_V"
 			echo "cont = $CONT"
-			if [ -n $id ]; then
+			if [[ -n $ID ]]; then
 				docker image rm -f $ID
 				docker rm -f $CONT
 				docker build -t $N_V .
@@ -118,6 +118,7 @@ while getopts ':cslra' OPTION; do
 			exit 1
 			;;
 		esac
+
 done
 
 if docker images "$1" | grep -q -F -- "$1"; then

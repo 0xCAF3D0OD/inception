@@ -4,10 +4,8 @@ echo "rename is called: version: $1"
 # Input string
 if [$1 == *.*]
 	echo "ok"
-
 input_string=$1
 
-#
 # Extract version number
 version_number=$(echo "$input_string" | grep -o -E '[0-9]+\.[0-9]+')
 

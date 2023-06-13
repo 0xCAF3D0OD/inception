@@ -52,4 +52,51 @@ while getopts ':ica' OPTION; do
 		esac
 done
 
+set -e
+while getopts ':ica' OPTION; do
+		case "$OPTION" in
+		i)
+			echo "Option i used"
+
+			IMAGE=$(docker image ls -a | awk '1==1 {print $1}' | grep -v "IMAGE ID" | grep -v "REPOSITORY" | tr "\n" " ")
+
+#			echo $IMAGE
+			if [ -z $2 ]; then
+				echo -e "no image get\n"
+				exit 1
+			fi
+			for mot in $IMAGE; do
+#				echo $mot
+#				echo $2
+				if [ $mot == $2 ]; then
+					docker image rm -f $mot
+					exit 0
+				fi
+			done
+			exit 0
+			;;
+		c)
+			echo "Option c used"
+
+			CONTAINERS=$(docker ps -a | awk '1==1 {print $1}' | grep -v "ID" | grep -v "CONTAINER" | tr "\n" " ")
+
+#			echo $CONTAINERS
+
+			for mot in $CONTAINERS; do
+				docker rm -f $mot
+			done
+			exit 0
+			;;
+		a)
+			echo "Option a used"
+
+			exit 0
+			;;
+		?)
+			echo "Usage: $(basename $0) [-i] [-c] [-a]"
+			exit 1
+			;;
+		esac
+done
+
 docker image rm -f $(docker image ls -a)

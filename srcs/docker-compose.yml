@@ -1,4 +1,4 @@
-version: '3.1'
+*version: '3'
 
 services:
   wordpress:
@@ -48,7 +48,23 @@ services:
     restart: on-failure
 
 volumes:
-  
+  wordpress:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: '/Users/login/data/wordpress'
+
+  db:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: '/User/login/data/mariadb'
+
+networks:
+  inception:
+    driver: bridge
 #version: '3.1'
 #
 #services:

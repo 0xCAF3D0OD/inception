@@ -21,7 +21,7 @@ services:
     container_name: wordpress
     env_file: .env
     volumes:
-      - wordpress:/var/www/wordpress
+      - wordpress:/var/www/nginx
     networks:
       - inception
     build:
@@ -29,9 +29,9 @@ services:
       dockerfile: Dockerfile
     depends_on:
       - mariadb
+    restart: on-failure
     expose:
       - "9000"
-    restart: on-failure
 
   nginx:
     image: nginx
@@ -68,44 +68,3 @@ volumes:
 networks:
   inception:
     driver: bridge
-#version: '3.1'
-#
-#services:
-#  wordpress:
-#    image: wordpress
-#    restart: unless-stopped
-#    environment:
-#      WORDPRESS_DB_HOST: db
-#      WORDPRESS_DB_USER: kevin
-#      WORDPRESS_DB_PASSWORD: 12345
-#      WORDPRESS_DB_NAME: mdb
-#    volumes:
-#      - wordpress:/var/www/wordpress
-#    depends_on:
-#      - mariadb
-#    expose:
-#      - "9000"
-#
-#  db:
-#    image: mariadb
-#    networks:
-#      - inception
-#    build:
-#      context: requirements/mariadb
-#      dockerfile: Dockerfile
-#    environment:
-#      MARIADB_ROOT_PASSWORD: root
-#      MARIADB_USER: kevin
-#      MARIADB_DATABASE: mdb
-#      MARIADB_PASSWORD: 12345
-#    restart: on-failure
-#
-#  web:
-#    image: nginx
-#    volumes:
-#      - ./templates:/etc/nginx/templates
-#    ports:
-#      - "8080:80"
-#    environment:
-#      - NGINX_HOST=kevin.com
-#      - NGINX_PORT=80

@@ -113,7 +113,6 @@ while getopts ':cslra' OPTION; do
 			exit 0
 			;;
 		?)
-<<<<<<< HEAD
 			echo "Usage: $(basename $0) [-a] [-c] [-s] [-l] [-r]"
 			exit 1
 			;;

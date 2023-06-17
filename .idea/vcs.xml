@@ -2,7 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Inception" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/docker_tutorial/getting-started" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/inception" vcs="Git" />
   </component>
 </project>

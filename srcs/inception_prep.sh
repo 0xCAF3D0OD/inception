@@ -20,7 +20,7 @@ sudo apt-get -y install make curl lsb-release ca-certificates apt-transport-http
 # - "--dearmor": is used for decrypting the file.
 # - "-o": is used for specified the output file "/usr/share/keyrings/docker-archive-keyring.gpg"
 
-curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+sudo curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 
 # - "dpkg --print-architecture": Indicate the system architecture, and the GPG key for verifying the authenticity of packages. The Docker repository is defined for the "stable" version and the system architecture.
 # - tee write an character string (the docker repo entry) to the file /etc/apt/sources.list.d/docker.list. If the file does not exist, it's created.

@@ -9,3 +9,4 @@ COPY /tools/auto_config.sh /tmp/auto_config.sh
 CMD ["bash","/tmp/auto_config.sh"]
 
 EXPOSE 3306
+q

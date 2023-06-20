@@ -4,7 +4,6 @@ services:
   mariadb:
     image: mariadb
     container_name: mariadb
-    cpus: 0.5
     volumes:
       - mariadb:/var/lib/mysql
     networks:
@@ -20,7 +19,6 @@ services:
   wordpress:
     image: wordpress
     container_name: wordpress
-    cpus: 0.5
     env_file: .env
     volumes:
       - wordpress:/var/www/nginx
@@ -38,7 +36,6 @@ services:
   nginx:
     image: nginx
     container_name: nginx
-    cpus: 0.5
     volumes:
       - wordpress:/var/www/wordpress
     networks:

@@ -1,6 +1,5 @@
 #!/bin/bash
 
-sleep infinity
 service mysql start;
 
 echo "database is =${SQL_DATABASE}"
@@ -21,4 +20,3 @@ mysql -u root  -e "FLUSH PRIVILEGES;"
 mysqladmin -u root -p$SQL_ROOT_PASSWORD shutdown
 
 exec mysqld_safe
->>>>>>> ab67d0c319fe34038bb6fdb1de409d3f502d5ddf

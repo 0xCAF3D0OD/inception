@@ -3,6 +3,7 @@ FROM debian:buster
 RUN apt update -y
 RUN apt upgrade -y
 RUN apt-get install -y mariadb-server
+RUN apt-get install -y mysql_secure_installation
 
 RUN rm /etc/mysql/mariadb.conf.d/50-server.cnf
 

@@ -1,12 +1,12 @@
 FROM debian:buster
 
-RUN apt update -y 
-RUN apt upgrade -y
+RUN apt-get update
+RUN apt-get upgrade
 
-#RUN apt install -y bash vim wget
-#RUN apt install -y php7.3 php-fpm php-mysql
-#RUN apt install -y mariadb-client
-#
+RUN apt-get install -y bash vim wget
+RUN apt-get install -y php7.3 php-phar php-json php-curl php-fpm php-mysqli php-iconv
+RUN apt install -y mariadb-client
+
 #RUN wget https://fr.wordpress.org/wordpress-6.2.2-fr_FR.tar.gz -P /var/www
 #RUN cd /var/www && tar -xzf wordpress-6.2.2-fr_FR.tar.gz && rm wordpress-6.2.2-fr_FR.tar.gz
 #

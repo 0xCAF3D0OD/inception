@@ -50,14 +50,14 @@ volumes:
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: '/Users/$(USER)/data/mariadb'
+      device: '/Users/$USER/data/mariadb'
 
-#  volume_wp:
-#    driver: local
-#    driver_opts:
-#      type: 'none'
-#      o: 'bind'
-#      device: '/Users/$(USER)/data/wordpress'
+  volume_wp:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: '/Users/$USER/data/wordpress'
 
 networks:
   inception:

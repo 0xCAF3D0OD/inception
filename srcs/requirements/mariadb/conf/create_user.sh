@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#source /Users/dino/Documents/Cursus_42/inception/srcs/.env
+#source /Users/kdi-noce/Documents/Cursus_42/inception/srcs/.env
 #
 #echo "database is =${SQL_DATABASE}"
 #echo "user is =${SQL_USER}"
@@ -39,8 +39,8 @@ cat .setup 2>/dev/null
 
 if [ $? -ne 0 ]; then
 
-  # Run the server in the background and wait for it to start up before creating the database
-  mariadb_install_db --datadir=/var/lib/mysql \
+#  # Run the server in the background and wait for it to start up before creating the database
+  mysql-install-db --datadir=/var/lib/mysql \
     --auth-root-authentication-method=normal
 
   # Give permissions to the database for the user mysql

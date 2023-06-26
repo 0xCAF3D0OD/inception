@@ -8,8 +8,8 @@ services:
       dockerfile: Dockerfile
     env_file: .env
     volumes:
-#      - ~/data/mariadb:/var/lib/mysql
-      - volume_db:/var/lib/mysql
+      #      - /Users/$USER/data/mariadb:/var/lib/mysql
+      - mariadb:/var/lib/mysql
     networks:
       - inception
     restart: always
@@ -21,7 +21,7 @@ services:
       dockerfile: Dockerfile
     env_file: .env
     volumes:
-      - volume_wp:/var/www/nginx
+      - wordpress:/var/www/nginx
     networks:
       - inception
     depends_on:
@@ -45,20 +45,20 @@ services:
 #    restart: on-failure
 
 volumes:
-  volume_db:
-    driver: local
-    driver_opts:
-      type: 'none'
-      o: 'bind'
-      device: '/Users/$USER/data/mariadb'
+  mariadb:
+       driver: local
+       driver_opts:
+         type: 'none'
+         o: 'bind'
+         device: '/Users/$USER/data/mariadb'
 
-  volume_wp:
-    driver: local
-    driver_opts:
-      type: 'none'
-      o: 'bind'
-      device: '/Users/$USER/data/wordpress'
-
+  wordpress:
+      driver: local
+      driver_opts:
+        type: 'none'
+        o: 'bind'
+        device: '/Users/$USER/data/wordpress'
+    
 networks:
   inception:
-#    driver: bridge
+    driver: bridge

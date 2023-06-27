@@ -12,6 +12,7 @@ COPY conf/create_user.sql /tmp/create_user.sql
 
 COPY conf/create_user.sh /tmp/create_user.sh
 RUN chmod +x /tmp/create_user.sh
+
 #RUN  mysql_install_db --datadir=/var/lib/mysql --auth-root-authentication-method=normal
 
-CMD ["bash", "/tmp/create_user.sh"]
+CMD ["sh", "/tmp/create_user.sh"]

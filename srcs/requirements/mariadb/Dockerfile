@@ -3,7 +3,6 @@ FROM debian:buster
 RUN apt-get update
 RUN	apt-get upgrade
 RUN	apt-get install -y mariadb-server vim
-#RUN apt install mysql_secure_installation
 
 RUN mkdir -p /var/lib/mysqld /run/mysqld
 

@@ -25,6 +25,8 @@ services:
       - inception
 #    depends_on:
 #      - mariadb
+    ports:
+      - "9000:9000"
     restart: on-failure
 
 #  nginx:

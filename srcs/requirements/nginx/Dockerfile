@@ -8,7 +8,7 @@ RUN mkdir -p /etc/nginx/ssl
 RUN openssl req -x509 -nodes \
     -out /etc/nginx/ssl/kdi-noce.crt \
     -keyout /etc/nginx/ssl/kdi-noce.key \
-    -subj "/C=CH/ST=Lausanne/L=Lausanne/O=42 School/OU=42/CN=kdi-noce"
+    -subj "/C=CH/ST=VD/L=Lausanne/O=42/OU=42/CN=kdi-noce.42.fr"
 
 RUN mkdir -p /var/run/nginx
 

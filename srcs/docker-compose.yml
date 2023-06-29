@@ -13,51 +13,51 @@ services:
 #      - inception
 #    restart: always
 #
-#  wordpress:
-#    container_name: wordpress
+  wordpress:
+    container_name: wordpress
+    build:
+      context: requirements/nginx
+      dockerfile: Dockerfile
+    env_file: .env
+    volumes:
+      - wordpress:/var/www/nginx
+    networks:
+      - inception
+#    depends_on:
+#      - mariadb
+    restart: on-failure
+
+#  nginx:
+#    container_name: nginx
 #    build:
 #      context: requirements/nginx
 #      dockerfile: Dockerfile
 #    env_file: .env
 #    volumes:
-#      - wordpress:/var/www/nginx
+#      - volume_wp:/var/www/wordpress
 #    networks:
 #      - inception
 #    depends_on:
-#      - mariadb
-#    restart: on-failure
-#
-  nginx:
-    container_name: nginx
-    build:
-      context: requirements/nginx
-      dockerfile: Dockerfile
-    env_file: .env
-#    volumes:
-#      - volume_wp:/var/www/wordpress
-    networks:
-      - inception
-#    depends_on:
 #      - wordpress
-    ports:
-      - "443:443"
-    restart: on-failure
+#    ports:
+#      - "443:443"
+#    restart: on-failure
 
 volumes:
-  mariadb:
-       driver: local
-       driver_opts:
-         type: 'none'
-         o: 'bind'
-         device: '/Users/$USER/data/mariadb'
-
-#  wordpress:
-#      driver: local
-#      driver_opts:
-#        type: 'none'
-#        o: 'bind'
-#        device: '/Users/$USER/data/wordpress'
-#    
+#  mariadb:
+#       driver: local
+#       driver_opts:
+#         type: 'none'
+#         o: 'bind'
+#         device: '/Users/$USER/data/mariadb'
+#
+  wordpress:
+      driver: local
+      driver_opts:
+        type: 'none'
+        o: 'bind'
+        device: '/Users/$USER/data/wordpress'
+    
 networks:
   inception:
     driver: bridge

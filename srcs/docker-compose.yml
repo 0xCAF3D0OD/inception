@@ -23,27 +23,25 @@ services:
       - wordpress:/var/www/nginx
     networks:
       - inception
-#    depends_on:
-#      - mariadb
-    ports:
-      - "9000:9000"
+ #    depends_on:
+ #      - mariadb
     restart: on-failure
 
-#  nginx:
-#    container_name: nginx
-#    build:
-#      context: requirements/nginx
-#      dockerfile: Dockerfile
-#    env_file: .env
-#    volumes:
-#      - volume_wp:/var/www/wordpress
-#    networks:
-#      - inception
-#    depends_on:
-#      - wordpress
-#    ports:
-#      - "443:443"
-#    restart: on-failure
+  nginx:
+    container_name: nginx
+    build:
+      context: requirements/nginx
+      dockerfile: Dockerfile
+    env_file: .env
+    volumes:
+      - wordpress:/var/www/wordpress
+    networks:
+      - inception
+    depends_on:
+      - wordpress
+    ports:
+      - "443:443"
+    restart: on-failure
 
 volumes:
 #  mariadb:

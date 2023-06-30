@@ -1,7 +1,7 @@
 FROM debian:buster
 
 RUN apt-get update 
-RUN apt-get upgrade
+RUN apt-get upgrade -y
 RUN apt-get install -y vim curl nginx openssl
 
 RUN mkdir -p /etc/nginx/ssl

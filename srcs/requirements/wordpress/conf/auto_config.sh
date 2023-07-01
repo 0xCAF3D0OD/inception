@@ -23,10 +23,10 @@ target="/etc/php7.3/php-fpm.d/www.conf"
 grep -E "listen = 127.0.0.1" $target > /dev/null 2>&1
 if [ $? -eq 0 ]; then
     sed -i "s|.*listen = 127.0.0.1.*|listen = 9000|g" $target
-    echo "env[MARIADB_HOST] = \$MARIADB_HOST" >> $target
-    echo "env[MARIADB_USER] = \$MARIADB_USER" >> $target
-    echo "env[MARIADB_PWD] = \$MARIADB_PWD" >> $target
-    echo "env[MARIADB_DB] = \$MARIADB_DB" >> $target
+    echo "env[DB_HOST] = \$DB_HOST" >> $target
+    echo "env[DB_USER] = \$DB_USER" >> $target
+    echo "env[DB_PASSWORD] = \$DB_PASSWORD" >> $target
+    echo "env[DB_DATABASE] = \$DB_DATABASE" >> $target
 fi
 
 if [ ! -e "wp-config.php" ]; then

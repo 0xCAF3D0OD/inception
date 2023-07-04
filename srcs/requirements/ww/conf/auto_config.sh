@@ -18,7 +18,7 @@
 #fi
 #
 #/usr/sbin/php-fpm7.3 -F
-target="/etc/php7.3/php-fpm.d/www.conf"
+#target="/etc/php7.3/php-fpm.d/www.conf"
 
 grep -E "listen = 127.0.0.1" $target > /dev/null 2>&1
 if [ $? -eq 0 ]; then
@@ -46,3 +46,4 @@ if [ ! -e "wp-config.php" ]; then
 fi
 
 php-fpm --nodaemonize
+

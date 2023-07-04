@@ -16,4 +16,6 @@ RUN mysql_install_db --datadir=/var/lib/mysql --auth-root-authentication-method=
 RUN chown -R mysql:mysql /var/lib/mysql
 RUN chown -R mysql:mysql /run/mysqld
 
+EXPOSE 3306
+
 CMD ["sh", "/tmp/create_user.sh"]

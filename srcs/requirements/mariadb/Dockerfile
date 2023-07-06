@@ -12,9 +12,9 @@ COPY conf/create_user.sql /tmp/create_user.sql
 COPY conf/create_user.sh /tmp/create_user.sh
 RUN chmod +x /tmp/create_user.sh
 
-RUN mysql_install_db --datadir=/var/lib/mysql --auth-root-authentication-method=normal
-RUN chown -R mysql:mysql /var/lib/mysql
-RUN chown -R mysql:mysql /run/mysqld
+#RUN mysql_install_db --datadir=/var/lib/mysql --auth-root-authentication-method=normal
+#RUN chown -R mysql:mysql /var/lib/mysql
+#RUN chown -R mysql:mysql /run/mysqld
 
 EXPOSE 3306
 

@@ -37,7 +37,7 @@ if [ $? -ne 0 ]; then
     	sleep 1
 	done
 
-	eval "echo \"$(cat /tmp/create_user.sql)\"" | mariadb
+	eval "echo \"$(cat /tmp/create_user.sql)\"" | mariadb -u root -p12345
 	touch .exist
 else
 	usr/bin/mysqld_safe --datadir=/var/lib/mysql

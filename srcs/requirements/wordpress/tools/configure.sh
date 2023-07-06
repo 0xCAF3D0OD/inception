@@ -10,6 +10,7 @@ done
 if [ ! -f "/var/www/html/index.html" ]; then
 
     # static website
+    mv /tmp/wp-config.php /var/www/html/wp-config.php
     mv /tmp/index.html /var/www/html/index.html
 
     # adminer

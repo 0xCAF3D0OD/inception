@@ -53,14 +53,14 @@ volumes:
        driver_opts:
          type: 'none'
          o: 'bind'
-         device: '/home/kdi-noce/data/mariadb'
+         device: '/home/din/data/mariadb'
 
   wordpress:
       driver: local
       driver_opts:
         type: 'none'
         o: 'bind'
-        device: '/home/kdi-noce/data/wordpress'
+        device: '/home/din/data/wordpress'
     
 networks:
   inception:

@@ -1,4 +1,4 @@
-USER			= kdi-noce
+USER			= din
 DATA_PATH 		= /home/$(USER)/data
 DC			= cd srcs/ && sudo docker compose
 

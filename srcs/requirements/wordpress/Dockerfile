@@ -63,7 +63,7 @@ COPY conf/www.conf /etc/php7/php-fpm.d/www.conf
 
 # static website
 COPY conf/index.html /tmp/index.html
-COPY tools/wp-config.php /tmp/wp-config.php
+#COPY tools/wp-config.php /var/www/html/wordpress/wp-config.php
 
 # install wordpress
 RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar

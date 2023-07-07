@@ -30,20 +30,26 @@
 
 cat .exist 2> /dev/null
 if [ $? -ne 0 ]; then
-        
+	echo "1"        
 	mysql_install_db --datadir=/var/lib/mysql --auth-root-authentication-method=normal
-        chown -R mysql:mysql /var/lib/mysql
-        chown -R mysql:mysql /run/mysqld
+        echo "2"
+	chown -R mysql:mysql /var/lib/mysql
+        echo "3"
+	chown -R mysql:mysql /run/mysqld
 	
+        echo "4"
 	/usr/bin/mysqld_safe --datadir=/var/lib/mysql &
 
+        echo "5"
 	while ! mysqladmin ping -h "$MARIADB_HOST" --silent; do
     	sleep 1
 	done
 
+        echo "6"
 	eval "echo \"$(cat /tmp/create_user.sql)\"" | mariadb -u root -p12345
 	touch .exist
 	exit
 fi
 
+echo "7"
 exec /usr/bin/mysqld_safe --datadir=/var/lib/mysql

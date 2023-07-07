@@ -2,26 +2,26 @@
 
 define('WP_CACHE', true);
 
-define( 'DB_NAME', getenv('DB_NAME') );
+define( 'DB_NAME', 'mariadb' );
 
-define( 'DB_USER', getenv('DB_USER') );
+define( 'DB_USER', 'kdi-noce' );
 
-define( 'DB_PASSWORD', getenv('DB_PWD') );
+define( 'DB_PASSWORD', '12345' );
 
-define( 'DB_HOST', getenv('DB_HOST'));
+define( 'DB_HOST', 'mariadb' );
 
 define( 'DB_CHARSET', 'utf8' );
 
 define( 'DB_COLLATE', '' );
 
-define('AUTH_KEY',         'a7D>mN+j~IF{MSWg/aF1/5+!>/tax/4V}{fnk*Z4>p!6LW+vRGOaP0&GX]i-`7nB');
-define('SECURE_AUTH_KEY',  'iKEdqL0#SL/Ao618=ZD,W%Ogu0s(zpN?nLB~Q@d-Cd7fK|Sqd%!8UT,>9+ D5wgY');
-define('LOGGED_IN_KEY',    'aMlu9G=Y-D,dk}?9g}2CS(O$a@F~eB^+Peq)WXYYrIGr|uXb^]rKQJT[&jS<S4;E');
-define('NONCE_KEY',        '`Q{fVW_,vNEyGeaijR3a35-^@F>S^a/(R-|<O!6>lRM`@XVa@+Ig>d=r!pY&GO5|');
-define('AUTH_SALT',        '1i%SIOPS[%H^o7ku3%z>%(I>T: ~N*#&KE{s($]2.|->SE1e/ICC8$`aE<F+Y;kK');
-define('SECURE_AUTH_SALT', '22@6,} Y-Ul@;~z*#{8g+{1gm4aB+ wQws*ky3Gpgi/E{:5!f_yJ?PEtBcNKJX)v');
-define('LOGGED_IN_SALT',   'iQ0&>`$]A9pR[lKi &55?{T@-^g},e(kkuV]{uPaTk;U2r!r6v]o-DLnfeg-TKAG');
-define('NONCE_SALT',       '9QC%D_ !h~+c614K#*c-~yKtrru^=r;#k0mC]m&?[s@c;Z2rJ!Q|K%[xC,1:=&Wq');
+define('AUTH_KEY',         '+d -e=glbgkd68-L&T|f`1u&X5]FpZ%&LA7mPx$<v^-HZ3F3xo7eQ4fhn.ci#u_j');
+define('SECURE_AUTH_KEY',  'Gr-%[MKZs7f$CvL%`ZMk)]h&y3NoZGwe Yko[(.jS (MV1UV/BtT`6OQ8r,Q.j_j');
+define('LOGGED_IN_KEY',    'hU!^gR< 1_J7]wK PC`)<%OUaQ..xktn,cHKiEc3i|OH/Z=h|b9J59qn>bSU|o3E');
+define('NONCE_KEY',        'h++|8c-%(PdLVw0C2hP:],j#)|-Jy[Ob>a61(QFB=Bi`vDprJw4|+[!IEe6s2#)V');
+define('AUTH_SALT',        '$9(--7uzkUf)KXiv=rf9_-3)R^I,~2P[SDm@WKX|pt%!7PpaIGL=AOrKSRE:#0&b');
+define('SECURE_AUTH_SALT', '[|V)`|7z#S} ^|wS+g+DT(pegQXIrp~!BiX!>AeW4q7(Q1csVu4k<Wz9?q-M|Wm0');
+define('LOGGED_IN_SALT',   'm%}>54|]rKbbQ>c*FD*XY-~;n.L$dN~#BU$-L|OEt+y.5>|4U4A#k2d$:Lcd|sl0');
+define('NONCE_SALT',       'es`fdT|ezwA)sR]:X-dvxB#25]%B!;WY@UsQfxPuUa#OG@DrG9b<Rp3Ea|+J:JJ:');
 
 $table_prefix = 'wp_';
 
